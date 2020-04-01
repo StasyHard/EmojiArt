@@ -56,15 +56,39 @@
 		56051D942434EC1000559446 /* EmojiArt */ = {
 			isa = PBXGroup;
 			children = (
-				56051D952434EC1000559446 /* AppDelegate.swift */,
-				56051D972434EC1000559446 /* SceneDelegate.swift */,
 				56051D992434EC1000559446 /* ViewController.swift */,
-				56051D9B2434EC1000559446 /* Main.storyboard */,
-				56051D9E2434EC1200559446 /* Assets.xcassets */,
-				56051DA02434EC1200559446 /* LaunchScreen.storyboard */,
-				56051DA32434EC1200559446 /* Info.plist */,
+				56051DA92434EE0000559446 /* Application */,
+				56051DAA2434EE3E00559446 /* Storyboard */,
+				56051DAB2434EE8100559446 /* Resources */,
 			);
 			path = EmojiArt;
+			sourceTree = "<group>";
+		};
+		56051DA92434EE0000559446 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				56051D952434EC1000559446 /* AppDelegate.swift */,
+				56051D972434EC1000559446 /* SceneDelegate.swift */,
+				56051DA32434EC1200559446 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		56051DAA2434EE3E00559446 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				56051D9B2434EC1000559446 /* Main.storyboard */,
+				56051DA02434EC1200559446 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		56051DAB2434EE8100559446 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				56051D9E2434EC1200559446 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +310,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VL3SPLW988;
-				INFOPLIST_FILE = EmojiArt/Info.plist;
+				INFOPLIST_FILE = EmojiArt/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +328,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VL3SPLW988;
-				INFOPLIST_FILE = EmojiArt/Info.plist;
+				INFOPLIST_FILE = EmojiArt/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
