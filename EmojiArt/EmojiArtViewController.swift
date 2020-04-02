@@ -17,6 +17,8 @@ class EmojiArtViewController: UIViewController  {
     }
     @IBOutlet weak var emojiArtView: EmojiArtView!
     
+    var imageFetcher: ImageFetcher!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,9 +34,29 @@ extension EmojiArtViewController: UIDropInteractionDelegate {
             session.canLoadObjects(ofClass: UIImage.self)
     }
     
+    //копирует изоброжение, которое попало в приложение
     func dropInteraction(_ interaction: UIDropInteraction,
                          sessionDidUpdate session: UIDropSession) -> UIDropProposal {
         return UIDropProposal(operation: .copy)
+    }
+    
+    func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+        imageFetcher = ImageFetcher() { (url, image) in
+            DispatchQueue.main.async {
+                self.emojiArtView.backgroundImage = image
+            }
+        }
+        session.loadObjects(ofClass: NSURL.self) { nsurls in
+            if let url = nsurls.first as? URL {
+                self.imageFetcher.fetch(url)
+            }
+        }
+        
+        session.loadObjects(ofClass: UIImage.self) { images in
+            if let image = images.first as? UIImage {
+                self.imageFetcher.backup = image
+            }
+        }
     }
     
 }
