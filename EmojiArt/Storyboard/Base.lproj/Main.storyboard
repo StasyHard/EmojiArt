@@ -14,13 +14,41 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yT5-Vg-IkI">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bU-sw-4u2" customClass="EmojiArtView" customModule="EmojiArt" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="20" width="984" height="748"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="5bU-sw-4u2" firstAttribute="top" secondItem="yT5-Vg-IkI" secondAttribute="top" constant="20" symbolic="YES" id="NES-Sb-SjH"/>
+                                    <constraint firstAttribute="bottom" secondItem="5bU-sw-4u2" secondAttribute="bottom" id="g2m-bR-BWB"/>
+                                    <constraint firstItem="5bU-sw-4u2" firstAttribute="leading" secondItem="yT5-Vg-IkI" secondAttribute="leading" constant="20" symbolic="YES" id="ufb-fC-pR2"/>
+                                    <constraint firstAttribute="trailing" secondItem="5bU-sw-4u2" secondAttribute="trailing" constant="20" symbolic="YES" id="z1p-Jk-ENF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yT5-Vg-IkI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9GE-Vx-K9l"/>
+                            <constraint firstItem="yT5-Vg-IkI" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="aeo-Ah-Fpk"/>
+                            <constraint firstItem="yT5-Vg-IkI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oaU-vd-3nz"/>
+                            <constraint firstItem="yT5-Vg-IkI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zt9-bD-QX1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="dropZone" destination="yT5-Vg-IkI" id="8bx-nY-Bwo"/>
+                        <outlet property="emojiArtView" destination="5bU-sw-4u2" id="AlD-jL-yvi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="115"/>
+            <point key="canvasLocation" x="12.890625" y="72.65625"/>
         </scene>
     </scenes>
 </document>

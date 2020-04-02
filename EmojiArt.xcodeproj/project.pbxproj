@@ -59,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				56051D992434EC1000559446 /* EmojiArtViewController.swift */,
-				56051DAC2435E25A00559446 /* EmojiArtView.swift */,
 				56051DAE2435E25E00559446 /* View */,
 				56051DA92434EE0000559446 /* Application */,
 				56051DAA2434EE3E00559446 /* Storyboard */,
@@ -98,6 +97,7 @@
 		56051DAE2435E25E00559446 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				56051DAC2435E25A00559446 /* EmojiArtView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

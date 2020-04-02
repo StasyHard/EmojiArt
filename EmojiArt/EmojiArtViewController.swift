@@ -10,6 +10,10 @@ import UIKit
 
 class EmojiArtViewController: UIViewController {
 
+    @IBOutlet weak var dropZone: UIView!
+    @IBOutlet weak var emojiArtView: EmojiArtView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
