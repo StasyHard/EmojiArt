@@ -32,5 +32,10 @@ extension EmojiArtViewController: UIDropInteractionDelegate {
             session.canLoadObjects(ofClass: UIImage.self)
     }
     
+    func dropInteraction(_ interaction: UIDropInteraction,
+                         sessionDidUpdate session: UIDropSession) -> UIDropProposal {
+        return UIDropProposal(operation: .copy)
+    }
+    
 }
 
