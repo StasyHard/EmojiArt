@@ -15,12 +15,20 @@ class EmojiArtViewController: UIViewController  {
             dropZone.addInteraction(UIDropInteraction(delegate: self))
         }
     }
+    
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollView.minimumZoomScale = 0.1
             scrollView.maximumZoomScale = 5.0
             scrollView.delegate = self
             scrollView.addSubview(emojiArtView)
+        }
+    }
+    
+    @IBOutlet weak var emogiCollectionView: UICollectionView! {
+        didSet {
+            emogiCollectionView.dataSource = self
+            emogiCollectionView.delegate = self
         }
     }
     @IBOutlet weak var scrollViewWidth: NSLayoutConstraint!
@@ -100,5 +108,9 @@ extension EmojiArtViewController: UIScrollViewDelegate {
         scrollViewHeight.constant = scrollView.contentSize.height
         scrollViewWidth.constant = scrollView.contentSize.width
     }
+}
+
+extension EmojiArtViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
 }
 
