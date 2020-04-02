@@ -8,9 +8,13 @@
 
 import UIKit
 
-class EmojiArtViewController: UIViewController {
+class EmojiArtViewController: UIViewController, UIDropInteractionDelegate {
 
-    @IBOutlet weak var dropZone: UIView!
+    @IBOutlet weak var dropZone: UIView! {
+        didSet {
+            dropZone.addInteraction(UIDropInteraction(delegate: self))
+        }
+    }
     @IBOutlet weak var emojiArtView: EmojiArtView!
     
     
