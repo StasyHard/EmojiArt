@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmojiArtViewController: UIViewController, UIDropInteractionDelegate {
+class EmojiArtViewController: UIViewController  {
 
     @IBOutlet weak var dropZone: UIView! {
         didSet {
@@ -17,11 +17,20 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate {
     }
     @IBOutlet weak var emojiArtView: EmojiArtView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+}
 
-
+extension EmojiArtViewController: UIDropInteractionDelegate {
+    
+    //делегат выполняется только для изображений с url
+    func dropInteraction(_ interaction: UIDropInteraction,
+                         canHandle session: UIDropSession) -> Bool {
+        return
+            session.canLoadObjects(ofClass: NSURL.self) &&
+            session.canLoadObjects(ofClass: UIImage.self)
+    }
+    
 }
 
