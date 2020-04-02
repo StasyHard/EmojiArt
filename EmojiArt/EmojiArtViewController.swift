@@ -9,7 +9,8 @@
 import UIKit
 
 class EmojiArtViewController: UIViewController  {
-    
+
+     //MARK: - IBOutlets
     @IBOutlet weak var dropZone: UIView! {
         didSet {
             dropZone.addInteraction(UIDropInteraction(delegate: self))
@@ -34,11 +35,9 @@ class EmojiArtViewController: UIViewController  {
     @IBOutlet weak var scrollViewWidth: NSLayoutConstraint!
     @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
     
-    
-    
+     //MARK: - Properties
     var emojiArtView = EmojiArtView()
     var imageFetcher: ImageFetcher!
-    
     var emojiArtBackgroundImage: UIImage? {
         get {
             return emojiArtView.backgroundImage
@@ -57,11 +56,11 @@ class EmojiArtViewController: UIViewController  {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    var emojis = "🐒🦆🐝🦋🐌🐢🦎🦍🐆🌞🌻🌧❄️⚽️🐥".map { String($0) }
+    
 }
 
+ //MARK: - UIScrollViewDelegate
 extension EmojiArtViewController: UIDropInteractionDelegate {
     
     //делегат выполняется только для изображений с url
@@ -98,6 +97,7 @@ extension EmojiArtViewController: UIDropInteractionDelegate {
     }
 }
 
+ //MARK: - UIScrollViewDelegate
 extension EmojiArtViewController: UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -110,7 +110,23 @@ extension EmojiArtViewController: UIScrollViewDelegate {
     }
 }
 
-extension EmojiArtViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension EmojiArtViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    //MARK: - UICollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        emojis.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmojiCell", for: indexPath)
+        
+        return cell
+    }
+    
+     //MARK: - UICollectionViewDelegate
+
+    //MARK: - UICollectionViewDelegateFlowLayout
     
 }
+
 
