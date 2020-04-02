@@ -13,7 +13,7 @@
                 <splitViewController id="Ib2-1O-VeY" sceneMemberID="viewController">
                     <connections>
                         <segue destination="WP5-fx-AVu" kind="relationship" relationship="masterViewController" id="kee-Vo-g1T"/>
-                        <segue destination="BYZ-38-t0r" kind="showDetail" id="T7J-av-kBh"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="rrp-8P-puu"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWH-gm-OOJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -69,23 +69,24 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="EmojiArtViewController" customModule="EmojiArt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="712" height="728"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yT5-Vg-IkI">
-                                <rect key="frame" x="0.0" y="0.0" width="712" height="728"/>
+                                <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bU-sw-4u2" customClass="EmojiArtView" customModule="EmojiArt" customModuleProvider="target">
+                                    <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="fL9-bY-RB2">
                                         <rect key="frame" x="0.0" y="0.0" width="712" height="728"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    </view>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="QNi-1t-8hy"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="GQo-sY-c6u"/>
+                                    </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="5bU-sw-4u2" firstAttribute="top" secondItem="yT5-Vg-IkI" secondAttribute="top" id="NES-Sb-SjH"/>
-                                    <constraint firstAttribute="bottom" secondItem="5bU-sw-4u2" secondAttribute="bottom" id="g2m-bR-BWB"/>
-                                    <constraint firstItem="5bU-sw-4u2" firstAttribute="leading" secondItem="yT5-Vg-IkI" secondAttribute="leading" id="ufb-fC-pR2"/>
-                                    <constraint firstAttribute="trailing" secondItem="5bU-sw-4u2" secondAttribute="trailing" id="z1p-Jk-ENF"/>
+                                    <constraint firstAttribute="bottom" secondItem="fL9-bY-RB2" secondAttribute="bottom" id="Lzx-DE-ckI"/>
+                                    <constraint firstItem="fL9-bY-RB2" firstAttribute="leading" secondItem="yT5-Vg-IkI" secondAttribute="leading" id="fs4-C9-Lur"/>
+                                    <constraint firstItem="fL9-bY-RB2" firstAttribute="top" secondItem="yT5-Vg-IkI" secondAttribute="top" id="gB0-4l-vvL"/>
+                                    <constraint firstAttribute="trailing" secondItem="fL9-bY-RB2" secondAttribute="trailing" id="o7s-4B-zwc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -100,12 +101,12 @@
                     </view>
                     <connections>
                         <outlet property="dropZone" destination="yT5-Vg-IkI" id="8bx-nY-Bwo"/>
-                        <outlet property="emojiArtView" destination="5bU-sw-4u2" id="AlD-jL-yvi"/>
+                        <outlet property="scrollView" destination="fL9-bY-RB2" id="vmr-X4-GfL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="42" y="478"/>
+            <point key="canvasLocation" x="41.6015625" y="477.34375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gMA-xQ-cXF">
