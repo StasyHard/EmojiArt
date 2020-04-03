@@ -64,7 +64,7 @@ class EmojiArtViewController: UIViewController  {
     
 }
 
- //MARK: - UIScrollViewDelegate
+ //MARK: - UIScrollViewDelegate - внешний
 extension EmojiArtViewController: UIDropInteractionDelegate {
     
     //делегат выполняется только для изображений с url
@@ -143,6 +143,11 @@ extension EmojiArtViewController: UICollectionViewDragDelegate {
         return dragItems(at: indexPath)
     }
     
+    func collectionView(_ collectionView: UICollectionView, itemsForAddingTo session: UIDragSession, at indexPath: IndexPath, point: CGPoint) -> [UIDragItem] {
+        return dragItems(at: indexPath)
+    }
+    
+    //достает эмоджи из объекта который мы потянули
     private func dragItems(at indexPath: IndexPath) -> [UIDragItem]{
         if let attributedString = (emojiCollectionView.cellForItem(at: indexPath) as? EmojiCollectionViewCell)?.label.attributedText {
             let dragItem = UIDragItem(itemProvider: NSItemProvider(object: attributedString))
@@ -152,7 +157,6 @@ extension EmojiArtViewController: UICollectionViewDragDelegate {
             return []
         }
     }
-    
     
 }
 
