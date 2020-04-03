@@ -9,8 +9,8 @@
 import UIKit
 
 class EmojiArtViewController: UIViewController  {
-
-     //MARK: - IBOutlets
+    
+    //MARK: - IBOutlets
     @IBOutlet weak var dropZone: UIView! {
         didSet {
             dropZone.addInteraction(UIDropInteraction(delegate: self))
@@ -36,7 +36,7 @@ class EmojiArtViewController: UIViewController  {
     @IBOutlet weak var scrollViewWidth: NSLayoutConstraint!
     @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
     
-     //MARK: - Properties
+    //MARK: - Properties
     var emojiArtView = EmojiArtView()
     var imageFetcher: ImageFetcher!
     var emojiArtBackgroundImage: UIImage? {
@@ -65,7 +65,7 @@ class EmojiArtViewController: UIViewController  {
     
 }
 
- //MARK: - UIScrollViewDelegate - внешний
+//MARK: - UIScrollViewDelegate - внешний
 extension EmojiArtViewController: UIDropInteractionDelegate {
     
     //делегат выполняется только для изображений с url
@@ -82,7 +82,8 @@ extension EmojiArtViewController: UIDropInteractionDelegate {
         return UIDropProposal(operation: .copy)
     }
     
-    func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+    func dropInteraction(_ interaction: UIDropInteraction,
+                         performDrop session: UIDropSession) {
         imageFetcher = ImageFetcher() { (url, image) in
             DispatchQueue.main.async {
                 self.emojiArtBackgroundImage = image
@@ -102,7 +103,7 @@ extension EmojiArtViewController: UIDropInteractionDelegate {
     }
 }
 
- //MARK: - UIScrollViewDelegate
+//MARK: - UIScrollViewDelegate
 extension EmojiArtViewController: UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -116,13 +117,14 @@ extension EmojiArtViewController: UIScrollViewDelegate {
 }
 
 extension EmojiArtViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
     //MARK: - UICollectionViewDataSource
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         emojis.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmojiCell", for: indexPath)
         if let emojiCell = cell as? EmojiCollectionViewCell {
             let text = NSAttributedString(string: emojis[indexPath.item], attributes: [.font: font])
@@ -131,21 +133,26 @@ extension EmojiArtViewController: UICollectionViewDataSource, UICollectionViewDe
         return cell
     }
     
-     //MARK: - UICollectionViewDelegate
-
+    //MARK: - UICollectionViewDelegate
+    
     //MARK: - UICollectionViewDelegateFlowLayout
     
 }
 
-    //MARK: - UICollectionViewDragDelegate
+//MARK: - UICollectionViewDragDelegate
 extension EmojiArtViewController: UICollectionViewDragDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+    func collectionView(_ collectionView: UICollectionView,
+                        itemsForBeginning session: UIDragSession,
+                        at indexPath: IndexPath) -> [UIDragItem] {
         session.localContext = collectionView
         return dragItems(at: indexPath)
     }
     
-    func collectionView(_ collectionView: UICollectionView, itemsForAddingTo session: UIDragSession, at indexPath: IndexPath, point: CGPoint) -> [UIDragItem] {
+    func collectionView(_ collectionView: UICollectionView,
+                        itemsForAddingTo session: UIDragSession,
+                        at indexPath: IndexPath,
+                        point: CGPoint) -> [UIDragItem] {
         return dragItems(at: indexPath)
     }
     
@@ -162,19 +169,23 @@ extension EmojiArtViewController: UICollectionViewDragDelegate {
     
 }
 
- //MARK: - UICollectionViewDropDelegate
+//MARK: - UICollectionViewDropDelegate
 extension EmojiArtViewController: UICollectionViewDropDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
+    func collectionView(_ collectionView: UICollectionView,
+                        canHandle session: UIDropSession) -> Bool {
         return session.canLoadObjects(ofClass: NSAttributedString.self)
     }
     
-    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+    func collectionView(_ collectionView: UICollectionView,
+                        dropSessionDidUpdate session: UIDropSession,
+                        withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
         let isSelf = (session.localDragSession?.localContext) as? UICollectionView == collectionView
         return UICollectionViewDropProposal(operation: isSelf ? .move : .copy, intent: .insertAtDestinationIndexPath)
     }
     
-    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+    func collectionView(_ collectionView: UICollectionView,
+                        performDropWith coordinator: UICollectionViewDropCoordinator) {
         
     }
 }
