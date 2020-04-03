@@ -24,10 +24,12 @@ class EmojiArtViewController: UIViewController  {
             scrollView.addSubview(emojiArtView)
         }
     }
-    @IBOutlet weak var emogiCollectionView: UICollectionView! {
+    @IBOutlet weak var emojiCollectionView: UICollectionView! {
         didSet {
-            emogiCollectionView.dataSource = self
-            emogiCollectionView.delegate = self
+            emojiCollectionView.dataSource = self
+            emojiCollectionView.delegate = self
+            emojiCollectionView.dragDelegate = self
+            
         }
     }
     @IBOutlet weak var scrollViewWidth: NSLayoutConstraint!
@@ -131,6 +133,26 @@ extension EmojiArtViewController: UICollectionViewDataSource, UICollectionViewDe
      //MARK: - UICollectionViewDelegate
 
     //MARK: - UICollectionViewDelegateFlowLayout
+    
+}
+
+    //MARK: - UICollectionViewDragDelegate
+extension EmojiArtViewController: UICollectionViewDragDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return dragItems(at: indexPath)
+    }
+    
+    private func dragItems(at indexPath: IndexPath) -> [UIDragItem]{
+        if let attributedString = (emojiCollectionView.cellForItem(at: indexPath) as? EmojiCollectionViewCell)?.label.attributedText {
+            let dragItem = UIDragItem(itemProvider: NSItemProvider(object: attributedString))
+            dragItem.localObject = attributedString
+            return [dragItem]
+        } else {
+            return []
+        }
+    }
+    
     
 }
 

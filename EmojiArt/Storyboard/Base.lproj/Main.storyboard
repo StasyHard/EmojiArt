@@ -150,7 +150,7 @@
                     </view>
                     <connections>
                         <outlet property="dropZone" destination="yT5-Vg-IkI" id="8bx-nY-Bwo"/>
-                        <outlet property="emogiCollectionView" destination="vb0-rR-8fB" id="PFt-Xf-aVK"/>
+                        <outlet property="emojiCollectionView" destination="vb0-rR-8fB" id="PFt-Xf-aVK"/>
                         <outlet property="scrollView" destination="fL9-bY-RB2" id="vmr-X4-GfL"/>
                         <outlet property="scrollViewHeight" destination="uqI-7q-exs" id="o13-gF-rGu"/>
                         <outlet property="scrollViewWidth" destination="Jez-mS-iAH" id="rci-ox-yol"/>
