@@ -16,7 +16,6 @@ class EmojiArtViewController: UIViewController  {
             dropZone.addInteraction(UIDropInteraction(delegate: self))
         }
     }
-    
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollView.minimumZoomScale = 0.1
@@ -25,7 +24,6 @@ class EmojiArtViewController: UIViewController  {
             scrollView.addSubview(emojiArtView)
         }
     }
-    
     @IBOutlet weak var emogiCollectionView: UICollectionView! {
         didSet {
             emogiCollectionView.dataSource = self
@@ -55,8 +53,12 @@ class EmojiArtViewController: UIViewController  {
             }
         }
     }
+    var emojis = "🐒🦆🐝🦋🐌🐢🦎🦍🐆🌞🌻🌧❄️⚽️🐥🚗✈️🎡🏠🎁".map { String($0) }
     
-    var emojis = "🐒🦆🐝🦋🐌🐢🦎🦍🐆🌞🌻🌧❄️⚽️🐥".map { String($0) }
+    private var font: UIFont {
+        return UIFontMetrics(forTextStyle: .body)
+            .scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(64.0))
+    }
     
 }
 
@@ -119,7 +121,10 @@ extension EmojiArtViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmojiCell", for: indexPath)
-        
+        if let emojiCell = cell as? EmojiCollectionViewCell {
+            let text = NSAttributedString(string: emojis[indexPath.item], attributes: [.font: font])
+            emojiCell.label.attributedText = text
+        }
         return cell
     }
     

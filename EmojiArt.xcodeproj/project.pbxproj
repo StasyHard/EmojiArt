@@ -16,6 +16,7 @@
 		56051DAD2435E25A00559446 /* EmojiArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56051DAC2435E25A00559446 /* EmojiArtView.swift */; };
 		56051DB02435EF9900559446 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56051DAF2435EF9900559446 /* Utilities.swift */; };
 		56051DB424360B4D00559446 /* EmojiArtDocumentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56051DB324360B4D00559446 /* EmojiArtDocumentTableViewController.swift */; };
+		56A3AA0224372D4600D95425 /* EmojiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A3AA0124372D4600D95425 /* EmojiCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		56051DAC2435E25A00559446 /* EmojiArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtView.swift; sourceTree = "<group>"; };
 		56051DAF2435EF9900559446 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		56051DB324360B4D00559446 /* EmojiArtDocumentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocumentTableViewController.swift; sourceTree = "<group>"; };
+		56A3AA0124372D4600D95425 /* EmojiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				56051DB324360B4D00559446 /* EmojiArtDocumentTableViewController.swift */,
 				56051D992434EC1000559446 /* EmojiArtViewController.swift */,
+				56A3AA0124372D4600D95425 /* EmojiCollectionViewCell.swift */,
 				56051DAF2435EF9900559446 /* Utilities.swift */,
 				56051DAE2435E25E00559446 /* View */,
 				56051DA92434EE0000559446 /* Application */,
@@ -179,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56A3AA0224372D4600D95425 /* EmojiCollectionViewCell.swift in Sources */,
 				56051DAD2435E25A00559446 /* EmojiArtView.swift in Sources */,
 				56051DB424360B4D00559446 /* EmojiArtDocumentTableViewController.swift in Sources */,
 				56051D9A2434EC1000559446 /* EmojiArtViewController.swift in Sources */,
